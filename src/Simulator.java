@@ -114,7 +114,7 @@ public class Simulator
     {
         for(int step = 1; step <= numSteps && view.isViable(field); step++) {
             simulateOneStep();
-            //delay(20);   // uncomment this to run more slowly
+            delay(20);   // change the delay here to either speed up or slow down the animation
         }
     }
 
@@ -253,6 +253,6 @@ public class Simulator
 
     public static void main(String args[]){
         Simulator simulator = new Simulator();
-        System.out.println("Hello");
+        simulator.runLongSimulation();
     }
 }
