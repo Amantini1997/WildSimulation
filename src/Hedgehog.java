@@ -5,9 +5,6 @@ import java.util.Random;
 /**
  * A simple model of a hedgehog.
  * Hedgehog's age, move, breed, and die.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class Hedgehog extends Creature
 {
@@ -26,14 +23,14 @@ public class Hedgehog extends Creature
     // The maximum amount of food a hedgehog is able to store.
     // In fact, it's the number of hours he can survive without eating before dying.
     private static final int MAX_FOOD_LEVEL = 5;
-    
+
     // A shared Random object, if required.
     private Random rand = new Random();
 
     /**
      * Create a new hedgehog. A hedgehog may be created with age
      * zero (a new born) or with a random age.
-     * 
+     *
      * @param randomAge If true, the hedgehog will have a random age.
      * @param field The field currently occupied.
      * @param location The location within the field.
@@ -50,7 +47,7 @@ public class Hedgehog extends Creature
     }
 
     /**
-     * This is what the hedgehog does most of the time - it runs 
+     * This is what the hedgehog does most of the time - it runs
      * around and hunt. Sometimes it will breed or die of old age.
      * @param newHedgehogs A list to receive newly born hedgehogs.
      * @param time Day time.
@@ -71,7 +68,7 @@ public class Hedgehog extends Creature
     protected void incrementHunger()
     {
         super.incrementHunger();
-    }  
+    }
 
     /**
      * If the food value exceeds the max food level, it is set to max food level.
@@ -98,7 +95,7 @@ public class Hedgehog extends Creature
         // hedgehogs only eat wheat
         if(species instanceof Wheat){
                 Wheat wheat = (Wheat) species;
-                if(wheat.isActive()) { 
+                if(wheat.isActive()) {
                     setFoodLevel(getFoodLevel() + wheat.getFoodValue());
                     wheat.setDead();
                     foodLevelCheck();
@@ -138,7 +135,7 @@ public class Hedgehog extends Creature
     protected int getMaxLitterSize(){
         return MAX_LITTER_SIZE;
     }
-    
+
     @Override
     protected int getMaxFoodLevel(){
         return MAX_FOOD_LEVEL;

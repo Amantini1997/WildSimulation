@@ -5,9 +5,6 @@ import java.util.Random;
 /**
  * A simple model of a sheep.
  * Sheeps age, move, breed, and die.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class Sheep extends Creature
 {
@@ -33,7 +30,7 @@ public class Sheep extends Creature
     /**
      * Create a new sheep. A sheep may be created with age
      * zero (a new born) or with a random age.
-     * 
+     *
      * @param randomAge If true, the sheep will have a random age.
      * @param field The field currently occupied.
      * @param location The location within the field.
@@ -50,7 +47,7 @@ public class Sheep extends Creature
     }
 
     /**
-     * This is what the sheep does most of the time - it runs 
+     * This is what the sheep does most of the time - it runs
      * around and hunt. Sometimes it will breed or die of old age.
      * @param newSheeps A list to receive newly born sheeps.
      * @param time Day time.
@@ -70,7 +67,7 @@ public class Sheep extends Creature
     protected void incrementHunger()
     {
         super.incrementHunger();
-    }   
+    }
 
     /**
      * If the food value exceeds the max food level, it is set to max food level.
@@ -98,7 +95,7 @@ public class Sheep extends Creature
         if(species instanceof Plant) {
             if(species instanceof Wheat){
                 Wheat wheat = (Wheat) species;
-                if(wheat.isActive()) { 
+                if(wheat.isActive()) {
                     setFoodLevel(getFoodLevel() + wheat.getFoodValue());
                     wheat.setDead();
                     foodLevelCheck();
@@ -106,7 +103,7 @@ public class Sheep extends Creature
                 }
             }else if (species instanceof PoisonBerry){
                 PoisonBerry berry = (PoisonBerry) species;
-                if(berry.isActive()) { 
+                if(berry.isActive()) {
                     berry.setDead();
                     return true;
                 }
@@ -145,7 +142,7 @@ public class Sheep extends Creature
     protected int getMaxLitterSize(){
         return MAX_LITTER_SIZE;
     }
-    
+
     @Override
     protected int getMaxFoodLevel(){
         return MAX_FOOD_LEVEL;

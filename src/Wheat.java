@@ -3,9 +3,6 @@ import java.util.Iterator;
 
 /**
  * A simple model of wheat.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class Wheat extends Plant
 {
@@ -17,14 +14,14 @@ public class Wheat extends Plant
 
     /**
      * Create a new wheat.
-     * 
+     *
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
     public Wheat(Field field, Location location)
     {
         super(field, location);
-    } 
+    }
 
     /**
      * Generate and return a new wheat in the field and location specified.
@@ -36,10 +33,10 @@ public class Wheat extends Plant
     {
         return new Wheat(field, loc);
     }
-    
+
     @Override
     public int getFoodValue(){
-        return FOOD_VALUE; 
+        return FOOD_VALUE;
     }
 
     /**
@@ -61,13 +58,13 @@ public class Wheat extends Plant
                 break;
         }
 
-        
+
         // When the max water level is reached it reproduces. In our simulation,
         // that level is reached since they born, so they always reproduce,
         // in order to balance the species.
         if(isActive() && getWaterLevel() >= MAX_WATER_LEVEL) {
             setWaterLevel(getWaterLevel() % MAX_WATER_LEVEL);
-            giveBirth(newWheat); 
+            giveBirth(newWheat);
 
             // wheat can die by overcrowding
             Location newLocation = getField().freeAdjacentLocation(getLocation());

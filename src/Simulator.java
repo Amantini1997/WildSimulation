@@ -8,9 +8,6 @@ import java.util.HashSet;
 /**
  * A simple predator-prey simulator, based on a rectangular field
  * containing plants( wheat and poisonBerrys) and creatures( dragons, humans, sheeps, hedgehogs, white walkers from GoT).
- * 
- * @author David J. Barnes and Michael Kölling and Alessandro Amantini and Ido Benzvi
- * @version 2016.02.29 (2)
  */
 public class Simulator
 {
@@ -23,7 +20,7 @@ public class Simulator
     // The probability that a white walker will be created in any given grid position.
     private static final double WHITEWALKER_CREATION_PROBABILITY = 0.02;
     // The probability that a human will be created in any given grid position.
-    private static final double HUMAN_CREATION_PROBABILITY = 0.2;    
+    private static final double HUMAN_CREATION_PROBABILITY = 0.2;
     // The probability that a dragon will be created in any given grid position.
     private static final double DRAGON_CREATION_PROBABILITY = 0.005;
     // The probability that a sheep will be created in any given grid position.
@@ -48,7 +45,7 @@ public class Simulator
     // Day time.
     private int time;
     // it's the time the compiler has to wait before changing weather(that may be the same as the previous)
-    private int waitTime; 
+    private int waitTime;
 
     private Virus virus;
     private Weather weather;
@@ -138,7 +135,7 @@ public class Simulator
         }
 
         // Provide space for newborn species.
-        List<Species> newSpecies = new ArrayList<>();      
+        List<Species> newSpecies = new ArrayList<>();
         // Let all rabbits act.
 
         for(Iterator<Species> it = species.iterator(); it.hasNext(); ) {
@@ -149,26 +146,26 @@ public class Simulator
                 species.act(newSpecies,time,weather);
             }
 
-            if(Math.random()>0.9 && species instanceof Creature){ 
+            if(Math.random()>0.9 && species instanceof Creature){
                 Creature creature = (Creature) species;
                 virus.infect(creature);
             }
 
-            if(! species.isActive()) {                    
+            if(! species.isActive()) {
                 it.remove();
             }
 
             // virus spreads infecting ONE random creature adjacent to those already infected
             if(virus.getInfectedCreatures().contains(species)){
                 Location loc = species.getLocation();
-                Field field = species.getField(); 
+                Field field = species.getField();
                 if(loc != null){
                     Location location = field.randomAdjacentLocation(loc); // getting a random adjacent location
                     Object obj = field.getObjectAt(location);
                     if(obj instanceof Creature){
                         Species speciesToInfect = (Species) obj; //getting the species belonging to that location
                         Creature creatureToInfect = (Creature) species;
-                        virus.infect(creatureToInfect);         
+                        virus.infect(creatureToInfect);
                     }
                 }
             }
@@ -252,5 +249,10 @@ public class Simulator
         catch (InterruptedException ie) {
             // wake up
         }
+    }
+
+    public static void main(String args[]){
+        Simulator simulator = new Simulator();
+        System.out.println("Hello");
     }
 }

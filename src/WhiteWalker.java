@@ -4,10 +4,6 @@ import java.util.List;
  * A simple model of a whiteWalker.
  * WhiteWalkers age, move, eat humans, and die.
  * WhiteWalkers can't breed, but they don't die by starvation.
- * 
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class WhiteWalker extends Creature
 {
@@ -28,7 +24,7 @@ public class WhiteWalker extends Creature
     /**
      * Create a whiteWalker. A whiteWalker can be created as a new born (age zero
      * and not hungry) or with a random age and food level.
-     * 
+     *
      * @param randomAge No matter what it is, WhiteWalker doesn't have hunger level and/or age.
      * @param field The field currently occupied.
      * @param location The location within the field.
@@ -60,7 +56,7 @@ public class WhiteWalker extends Creature
     {
         if(species instanceof Human) {
             Human human = (Human) species;
-            if(human.isActive()) { 
+            if(human.isActive()) {
                 human.setDead();
                 return true;
             }

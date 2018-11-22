@@ -3,9 +3,6 @@ import java.util.List;
 /**
  * A simple model of a poisonBerry. It can't move and decrease the food value of every species
  * eating it.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class PoisonBerry extends Plant
 {
@@ -18,14 +15,14 @@ public class PoisonBerry extends Plant
 
     /**
      * Create a new poisonBerry.
-     * 
+     *
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
     public PoisonBerry(Field field, Location location)
     {
         super(field, location);
-    } 
+    }
 
     /**
      * Generate and return a new poisonBerry in the field and location specified.
@@ -58,12 +55,12 @@ public class PoisonBerry extends Plant
                     setWaterLevel(getWaterLevel() - 1);
                 }
         }
-        
+
         // When the max water level is reached it reproduces.
         if(isActive() && getWaterLevel() >= MAX_WATER_LEVEL) {
             setWaterLevel(getWaterLevel() % MAX_WATER_LEVEL);
             giveBirth(newPoisonBerries);
-            
+
             // poisonBerries cannot die by overcrowding
         }
     }

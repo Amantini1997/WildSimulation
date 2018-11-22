@@ -5,9 +5,6 @@ import java.util.ArrayList;
 
 /**
  * A class representing shared characteristics of creatures.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public abstract class Creature implements Species
 {
@@ -26,11 +23,11 @@ public abstract class Creature implements Species
     // List containing the classes of all the species that need a partner.
     private List<Class> partnerNeeder;
     // current level of food.
-    private int foodLevel; 
+    private int foodLevel;
 
     /**
      * Create a new creature at location in field.
-     * 
+     *
      * @param field The field currently occupied.
      * @param location The location within the field.
      * @param age the age of the creature.
@@ -45,7 +42,7 @@ public abstract class Creature implements Species
         foodLevel = getMaxFoodLevel();
         definePartnerNeeders();
     }
-    
+
     /**
      * Defining all the species needing a partener to breed.
      */
@@ -76,10 +73,10 @@ public abstract class Creature implements Species
     public void act(List<Species> newCreatures,int time, Weather weather){
 
         if(isActive()) {
-            giveBirth(newCreatures);            
+            giveBirth(newCreatures);
             // Move towards a source of food if found.
             Location newLocation = findFood();
-            if(newLocation == null) { 
+            if(newLocation == null) {
                 // No food found - try to move to a free location.
                 newLocation = getField().freeAdjacentLocation(getLocation());
             }
@@ -150,11 +147,11 @@ public abstract class Creature implements Species
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
             boolean breedable = false;
-            
+
             if(checkPartner()){
                 breedable = true;
             }
-            
+
             if(breedable){
                 newCreatures.add(giveBirthUnique(field, loc));
             }
@@ -170,14 +167,14 @@ public abstract class Creature implements Species
                 Location where = it.next();
                 Species species = (Species) field.getObjectAt(where);
                 if(this.compareTo(species)==1){
-                    if(isActive() && getIsMale() != species.getIsMale()) { 
+                    if(isActive() && getIsMale() != species.getIsMale()) {
                         return false;
                     }
                 }
             }
 
             return true;
-        } 
+        }
         return true;
     }
 
@@ -277,11 +274,11 @@ public abstract class Creature implements Species
         }
         return null;
     }
-    
+
     protected void setFoodLevel(int foodLevel){
         this.foodLevel = foodLevel;
     }
-    
+
     protected int getFoodLevel(){
         return foodLevel;
     }

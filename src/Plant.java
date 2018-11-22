@@ -2,9 +2,6 @@ import java.util.List;
 
 /**
  * Plant class. Plant die only if something eats them and they can't move.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public abstract class Plant implements Species
 {
@@ -30,7 +27,7 @@ public abstract class Plant implements Species
         this.field = field;
         setLocation(location);
         waterLevel = 2;
-    }    
+    }
 
     /**
      * Place the plant at the new location in the given field.
@@ -53,7 +50,7 @@ public abstract class Plant implements Species
     public boolean getIsMale(){
         return true;
     }
-    
+
     /**
      * Return the plant's location.
      * @return The plant's location.
@@ -77,7 +74,7 @@ public abstract class Plant implements Species
             field = null;
         }
     }
-    
+
     /**
      * Check whether the plant is alive or not.
      * @return true if the plant is still alive.
@@ -119,7 +116,7 @@ public abstract class Plant implements Species
      * @return New instance of Plant.
      */
     protected abstract Plant giveBirthUnique(Field field, Location loc);
-    
+
     /**
      * Check if a species is a plant.
      * @param species The species to check.
@@ -129,11 +126,11 @@ public abstract class Plant implements Species
     public int compareTo(Species species){
         return this == (species)? 1 : 0;
     }
-    
+
     protected int getWaterLevel(){
         return waterLevel;
     }
-    
+
     protected void setWaterLevel(int waterLevel){
         this.waterLevel = waterLevel;
     }

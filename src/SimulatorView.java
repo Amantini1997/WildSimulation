@@ -6,13 +6,10 @@ import java.util.Map;
 
 /**
  * A graphical view of the simulation grid.
- * The view displays a colored rectangle for each location 
+ * The view displays a colored rectangle for each location
  * representing its contents. It uses a default background color.
  * Colors for each type of species can be defined using the
  * setColor method.
- * 
- * @author David J. Barnes and Michael Kölling and Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class SimulatorView extends JFrame
 {
@@ -28,7 +25,7 @@ public class SimulatorView extends JFrame
     private final String HOURS_PREFIX = "Hours: ";
     private JLabel timeLabel, population;
     private FieldView fieldView;
-    
+
     // A map for storing colors for participants in the simulation
     private Map<Class, Color> colors;
     // A statistics object computing and storing simulation information
@@ -47,9 +44,9 @@ public class SimulatorView extends JFrame
         setTitle("Fox and Rabbit Simulation");
         timeLabel = new JLabel(TIME_PREFIX, JLabel.CENTER);
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
-        
+
         setLocation(100, 50);
-        
+
         fieldView = new FieldView(height, width);
 
         Container contents = getContentPane();
@@ -59,7 +56,7 @@ public class SimulatorView extends JFrame
         pack();
         setVisible(true);
     }
-    
+
     /**
      * Define a color to be used for a given class of creature.
      * @param creatureClass The creature's Class object.
@@ -97,10 +94,10 @@ public class SimulatorView extends JFrame
         if(!isVisible()) {
             setVisible(true);
         }
-            
+
         timeLabel.setText(TIME_PREFIX + HOURS_PREFIX + time + ":00" + "              " + WEATHER_PREFIX + weatherCondition);
         stats.reset();
-        
+
         fieldView.preparePaint();
 
         for(int row = 0; row < field.getDepth(); row++) {
@@ -129,13 +126,13 @@ public class SimulatorView extends JFrame
     {
         return stats.isViable(field);
     }
-    
+
     /**
-     * Provide a graphical view of a rectangular field. This is 
+     * Provide a graphical view of a rectangular field. This is
      * a nested class (a class defined inside a class) which
      * defines a custom component for the user interface. This
      * component displays the field.
-     * This is rather advanced GUI stuff - you can ignore this 
+     * This is rather advanced GUI stuff - you can ignore this
      * for your project if you like.
      */
     private class FieldView extends JPanel
@@ -188,7 +185,7 @@ public class SimulatorView extends JFrame
                 }
             }
         }
-        
+
         /**
          * Paint on grid location on this field in a given color.
          */

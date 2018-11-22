@@ -5,9 +5,6 @@ import java.util.Iterator;
 /**
  * A simple model of a human.
  * Human age, move, breed, and die.
- * 
- * @author Alessandro Amantini and Ido Benzvi
- * @version 2018.02.21
  */
 public class Human extends Creature
 {
@@ -26,14 +23,14 @@ public class Human extends Creature
     // The maximum amount of food a human is able to store.
     // In fact, it's the number of hours he can survive without eating before dying.
     private static final int MAX_FOOD_LEVEL = 7;
-    
+
     // A shared Random object, if required.
     private Random rand = new Random();
 
     /**
      * Create a new human. Human may be created with age
      * zero (a new born) or with a random age.
-     * 
+     *
      * @param randomAge If true, the human will have a random age.
      * @param field The field currently occupied.
      * @param location The location within the field.
@@ -60,7 +57,7 @@ public class Human extends Creature
     }
 
     /**
-     * This is what the human does most of the time - it runs 
+     * This is what the human does most of the time - it runs
      * around and hunt. Sometimes it will breed or die of old age.
      * @param newHumans A list to receive newly born humans.
      * @param time Day time.
@@ -70,7 +67,7 @@ public class Human extends Creature
     public void act(List<Species> newHumans, int time, Weather weather)
     {
         incrementAge();
-        incrementHunger();      
+        incrementHunger();
         super.act(newHumans, time, weather);
     }
 
@@ -112,7 +109,7 @@ public class Human extends Creature
         if(species instanceof Plant) {
             if(species instanceof Wheat){
                 Wheat wheat = (Wheat) species;
-                if(wheat.isActive()) { 
+                if(wheat.isActive()) {
                     setFoodLevel(getFoodLevel() + wheat.getFoodValue());
                     foodLevelCheck();
                     wheat.setDead();
@@ -120,7 +117,7 @@ public class Human extends Creature
                 }
             }else if (species instanceof PoisonBerry){
                 PoisonBerry berry = (PoisonBerry) species;
-                if(berry.isActive()) { 
+                if(berry.isActive()) {
                     berry.setDead();
                     return true;
                 }
@@ -130,7 +127,7 @@ public class Human extends Creature
         // if species is a sheep
         if(species instanceof Sheep) {
             Sheep sheep = (Sheep) species;
-            if(sheep.isActive()) { 
+            if(sheep.isActive()) {
                 setFoodLevel(getFoodLevel() + sheep.getFoodValue());
                 sheep.setDead();
                 foodLevelCheck();

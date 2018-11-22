@@ -5,9 +5,6 @@ import java.util.Random;
 /**
  * A simple model of a dragon.
  * Dragon's age, move, breed, and die.
- * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29 (2)
  */
 public class Dragon extends Creature
 {
@@ -26,14 +23,14 @@ public class Dragon extends Creature
     // The maximum amount of food a dragon is able to store.
     // In fact, it's the number of hours he can survive without eating before dying.
     private static final int MAX_FOOD_LEVEL = 150;
-    
+
     // A shared Random object, if required.
     private Random rand = new Random();
 
     /**
      * Create a new dragon. A dragon may be created with age
      * zero (a new born) or with a random age.
-     * 
+     *
      * @param randomAge If true, the dragon will have a random age.
      * @param field The field currently occupied.
      * @param location The location within the field.
@@ -50,7 +47,7 @@ public class Dragon extends Creature
     }
 
     /**
-     * This is what the dragon does most of the time - it runs 
+     * This is what the dragon does most of the time - it runs
      * around and hunt. Sometimes it will breed or die of old age.
      * Dragon cannot move when it's windy.
      * @param newDragons A list to receive newly born dragons.
@@ -78,7 +75,7 @@ public class Dragon extends Creature
     protected void incrementHunger()
     {
         super.incrementHunger();
-    }   
+    }
 
     /**
      * If the food value exceeds the max food level, it is set to max food level.

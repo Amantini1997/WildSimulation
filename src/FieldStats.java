@@ -2,12 +2,9 @@ import java.awt.Color;
 import java.util.HashMap;
 
 /**
- * This class collects and provides some statistical data on the state 
- * of a field. It is flexible: it will create and maintain a counter 
+ * This class collects and provides some statistical data on the state
+ * of a field. It is flexible: it will create and maintain a counter
  * for any class of object that is found within the field.
- * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
  */
 public class FieldStats
 {
@@ -46,9 +43,9 @@ public class FieldStats
         }
         return buffer.toString();
     }
-    
+
     /**
-     * Invalidate the current set of statistics; reset all 
+     * Invalidate the current set of statistics; reset all
      * counts to zero.
      */
     public void reset()
@@ -104,7 +101,7 @@ public class FieldStats
         }
         return nonZero > 1;
     }
-    
+
     /**
      * Generate counts of the number of foxes and rabbits.
      * These are not kept up to date as foxes and rabbits
